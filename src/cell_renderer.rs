@@ -214,7 +214,7 @@ impl EntityRenderCommand for DrawMeshedInstanced {
     ) -> RenderCommandResult {
         let mesh_handle = mesh_query.get(item).expect("missing mesh");
         let instance_buffer = instance_buffer_query
-            .get(item)
+            .get_inner(item)
             .expect("missing instance buffer");
 
         let gpu_mesh = match meshes.into_inner().get(mesh_handle) {
